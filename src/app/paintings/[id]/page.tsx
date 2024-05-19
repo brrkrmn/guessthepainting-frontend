@@ -1,12 +1,18 @@
+import { paintingsService } from "@/services/paintings"
+
 type PageProps = {
   params: {
     id: string
   }
 }
 
-const Page = ({ params }: PageProps) => {
+const Page = async ({ params }: PageProps) => {
+  const res = await paintingsService.getPainting(params.id)
+
   return (
-    <div>{params.id}</div>
+    <div>
+      {res.title}
+    </div>
   )
 }
 

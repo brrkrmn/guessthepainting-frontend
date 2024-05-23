@@ -1,6 +1,9 @@
+import { paintingsService } from "@/services/paintings";
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return (
-   <div>yo</div>
-  );
+const Home = async () => {
+  const res = await paintingsService.getLastId();
+  redirect(`/paintings/${res.lastId.toString()}`)
 }
+
+export default Home;

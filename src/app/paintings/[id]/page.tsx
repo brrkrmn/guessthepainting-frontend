@@ -1,3 +1,4 @@
+import ImageBox from "@/app/components/ImageBox"
 import { paintingsService } from "@/services/paintings"
 
 type PageProps = {
@@ -17,9 +18,7 @@ const Page = async ({ params }: PageProps) => {
       <h1 className="text-2xl font-medium">Guess the Painting</h1>
       <div className="w-full my-8 flex flex-col items-center gap-2">
         <p className="text-center text-[#45484c] font-normal">Painting #{res.id}</p>
-        <div className="w-full h-[280px] flex items-center justify-center border-2 rounded-md border-[#1212]">
-          image box
-        </div>
+        <ImageBox hints={res.hints} />
         <div className="flex items-center justify-center gap-2 my-2">
           {boxArray.map(box => (
             <button className="border-2 border-[#121] w-8 aspect-square rounded-lg" key={box}>{box}</button>

@@ -5,7 +5,8 @@ export type GameContextValue =
     setValue: ({ value, id }: { value: PaintingState;  id: number}) => void;
     getPaintingState: (id: number) => PaintingState;
     updateGameStatus: (value: PaintingState) => GameStatus;
-    updateCurrentStep: (value: PaintingState) => void
+    updateCurrentStep: (value: PaintingState) => void;
+    currentStep: GameStep;
   }
 
 export type PaintingState = {

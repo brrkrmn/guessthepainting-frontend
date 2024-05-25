@@ -59,6 +59,7 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
         getPaintingState,
         updateGameStatus,
         updateCurrentStep,
+        currentStep,
       }}
     >
       {children}

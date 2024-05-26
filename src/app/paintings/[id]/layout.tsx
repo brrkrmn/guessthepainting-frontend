@@ -1,4 +1,4 @@
-import GameProvider from "../../context/gameProvider";
+import GameProvider from "@/context/gameProvider";
 
 const PaintingsLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,6 +1,9 @@
 import { backendService } from "@/api"
 import { API_URLS } from "@/api/api.constants"
-import { GetLastIdResponse, GetPaintingResponse } from "./paintings.types"
+import {
+  GetLastIdResponse,
+  GetPaintingResponse,
+} from "@/services/paintings/paintings.types";
 
 export const paintingsService = {
   getPainting: async (id: string) => {

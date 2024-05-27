@@ -5,6 +5,8 @@ export type GameContextValue =
       currentStep: GameStep;
       paintingState: PaintingState;
       setPaintingState: (value: PaintingState) => void;
+      displayedStep: GameStep;
+      updateDisplayedStep: (step: GameStep) => void;
     };
 
 export type PaintingState =

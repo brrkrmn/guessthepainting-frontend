@@ -20,7 +20,12 @@ export const useGameContext = () => {
 };
 
 const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const [paintingState, setPaintingState] = useState<PaintingState>({});
+  const [paintingState, setPaintingState] = useState<PaintingState>({
+    successStep: 3,
+    failedStep: 2,
+  });
+  const [displayedStep, setDisplayedStep] = useState<GameStep>(1);
+
   const id = useParams().id;
 
   useEffect(() => {
@@ -56,13 +61,21 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
     const failedStep = paintingState.failedStep;
 
     if (!successStep && !failedStep) {
+      setDisplayedStep(1);
       return 1;
     } else if (!successStep && failedStep) {
-      return Math.min(5, failedStep + 1) as GameStep;
+      const step = Math.min(5, failedStep + 1) as GameStep;
+      setDisplayedStep(step);
+      return step;
     } else if (successStep) {
+      setDisplayedStep(successStep);
       return successStep;
     }
   }, [paintingState]);
+
+  const updateDisplayedStep = (step: GameStep) => {
+    setDisplayedStep(step);
+  };
 
   return (
     <GameContext.Provider
@@ -71,6 +84,8 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
         currentStep,
         paintingState,
         setPaintingState,
+        displayedStep,
+        updateDisplayedStep,
       }}
     >
       {children}

@@ -8,10 +8,10 @@ type ImageBoxProps = {
 };
 
 const ImageBox = ({ hints }: ImageBoxProps) => {
-  const { currentStep } = useGameContext();
+  const { displayedStep } = useGameContext();
   return (
     <div className="flex h-[280px] w-full items-center justify-center rounded-md border-2 border-[#1212]">
-      {hints[currentStep - 1].image}
+      {hints[displayedStep - 1].image}
     </div>
   );
 };

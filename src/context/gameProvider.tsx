@@ -3,11 +3,11 @@
 import {
   GameContextValue,
   GameState,
-  GameStatus,
   GameStep,
   PaintingState,
 } from "@/context/gameContext.types";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export const GameContext = createContext<GameContextValue>(undefined);
 
@@ -20,64 +20,57 @@ export const useGameContext = () => {
 };
 
 const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const [gameState, setGameState] = useState<GameState>({});
-  const [gameStatus, setGameStatus] = useState<GameStatus>("ongoing");
-  const [currentStep, setCurrentStep] = useState<GameStep>(1);
+  const [paintingState, setPaintingState] = useState<PaintingState>({});
+  const id = useParams().id;
 
   useEffect(() => {
     const GTPData = localStorage.getItem("gameState");
-    if (GTPData) setGameState(JSON.parse(GTPData));
+    if (GTPData) {
+      const gameState = JSON.parse(GTPData);
+      setPaintingState(gameState[id as keyof GameState]);
+    }
   }, []);
 
-  const setPaintingState = ({
-    value,
-    id,
-  }: {
-    value: PaintingState;
-    id: number;
-  }) => {
-    const newGameState = {
+  useEffect(() => {
+    const GTPData = localStorage.getItem("gameState");
+    const gameState = GTPData && JSON.parse(GTPData);
+    const newGameState: GameState = {
       ...gameState,
-      [id]: value,
+      [id]: paintingState,
     };
     localStorage.setItem("gameState", JSON.stringify(newGameState));
-    setGameState(newGameState);
-  };
+  }, [paintingState]);
 
-  const getPaintingState = (id: number) => {
-    return gameState[id as keyof GameState];
-  };
-
-  const updateGameStatus = (value: PaintingState) => {
-    if (value.successStep) {
+  const status = useMemo(() => {
+    if (paintingState.sucessStep) {
       return "success";
-    } else if (value.failedStep === 5) {
+    } else if (paintingState.failedStep === 5) {
       return "failed";
     } else {
       return "ongoing";
     }
-  };
+  }, [paintingState]);
 
-  const updateCurrentStep = (value: PaintingState) => {
-    const successStep = value.successStep;
-    const failedStep = value.failedStep;
+  const currentStep = useMemo(() => {
+    const successStep = paintingState.successStep;
+    const failedStep = paintingState.failedStep;
 
-    if (successStep === null && failedStep === null) {
-      setCurrentStep(1);
-    } else if (successStep === null && failedStep !== null) {
-      setCurrentStep(Math.min(5, failedStep + 1) as GameStep);
-    } else if (successStep !== null) {
-      setCurrentStep(successStep);
+    if (!successStep && !failedStep) {
+      return 1;
+    } else if (!successStep && failedStep) {
+      return Math.min(5, failedStep + 1) as GameStep;
+    } else if (successStep) {
+      return successStep;
     }
-  };
+  }, [paintingState]);
 
   return (
     <GameContext.Provider
       value={{
-        getPaintingState,
-        updateGameStatus,
-        updateCurrentStep,
+        status,
         currentStep,
+        paintingState,
+        setPaintingState,
       }}
     >
       {children}

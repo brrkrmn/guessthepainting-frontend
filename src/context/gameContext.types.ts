@@ -1,16 +1,18 @@
 export type GameContextValue =
   | undefined
   | {
-      getPaintingState: (id: number) => PaintingState;
-      updateGameStatus: (value: PaintingState) => GameStatus;
-      updateCurrentStep: (value: PaintingState) => void;
+      status: GameStatus;
       currentStep: GameStep;
+      paintingState: PaintingState;
+      setPaintingState: (value: PaintingState) => void;
     };
 
-export type PaintingState = {
-  successStep: SuccessStep;
-  failedStep: FailedStep;
-};
+export type PaintingState =
+  | {}
+  | {
+      successStep: SuccessStep;
+      failedStep: FailedStep;
+    };
 
 export type GameState =
   | {}

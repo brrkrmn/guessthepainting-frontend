@@ -1,6 +1,7 @@
 import ImageBox from "@/components/ImageBox/ImageBox";
 import { PaintingNavigation } from "@/components/PaintingNavigation";
 import StepBoxes from "@/components/StepBoxes/StepBoxes";
+import { SubmitSection } from "@/components/SubmitSection";
 import { paintingsService } from "@/services/paintings";
 
 type PageProps = {
@@ -16,12 +17,15 @@ const Page = async ({ params }: PageProps) => {
   return (
     <div className="flex h-screen w-[512px] flex-col items-center border-2 border-[#121]  pb-10">
       <h1 className="text-2xl font-medium">Guess the Painting</h1>
-      <div className="my-8 flex w-full flex-col items-center gap-2">
+      <div className="mt-8 flex w-full flex-col items-center gap-2">
         <p className="text-center font-normal text-[#45484c]">
           Painting #{painting.id}
         </p>
         <ImageBox hints={painting.hints} />
         <StepBoxes />
+      </div>
+      <div className="mt-2 flex h-full w-full items-center justify-center">
+        <SubmitSection />
       </div>
       <div className="mt-auto flex w-full items-center">
         <PaintingNavigation lastId={Number(lastId)} />

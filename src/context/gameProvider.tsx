@@ -20,10 +20,7 @@ export const useGameContext = () => {
 };
 
 const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const [paintingState, setPaintingState] = useState<PaintingState>({
-    successStep: 3,
-    failedStep: 2,
-  });
+  const [paintingState, setPaintingState] = useState<PaintingState>({});
   const [displayedStep, setDisplayedStep] = useState<GameStep>(1);
 
   const id = useParams().id;

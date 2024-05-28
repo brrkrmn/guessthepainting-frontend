@@ -1,4 +1,5 @@
 import ImageBox from "@/components/ImageBox/ImageBox";
+import { PaintingNavigation } from "@/components/PaintingNavigation";
 import StepBoxes from "@/components/StepBoxes/StepBoxes";
 import { paintingsService } from "@/services/paintings";
 
@@ -9,24 +10,21 @@ type PageProps = {
 };
 
 const Page = async ({ params }: PageProps) => {
-  const res = await paintingsService.getPainting(params.id);
+  const painting = await paintingsService.getPainting(params.id);
+  const lastId = (await paintingsService.getLastId()).lastId;
 
   return (
     <div className="flex h-screen w-[512px] flex-col items-center border-2 border-[#121]  pb-10">
       <h1 className="text-2xl font-medium">Guess the Painting</h1>
       <div className="my-8 flex w-full flex-col items-center gap-2">
         <p className="text-center font-normal text-[#45484c]">
-          Painting #{res.id}
+          Painting #{painting.id}
         </p>
-        <ImageBox hints={res.hints} />
+        <ImageBox hints={painting.hints} />
         <StepBoxes />
       </div>
-      <div className="mt-auto flex w-full items-center justify-between">
-        <button className="rounded-lg border-2 border-black">previous</button>
-        <button className="rounded-lg border-2 border-black">
-          See all paintings
-        </button>
-        <button className="rounded-lg border-2 border-black">next</button>
+      <div className="mt-auto flex w-full items-center">
+        <PaintingNavigation lastId={Number(lastId)} />
       </div>
     </div>
   );

@@ -4,9 +4,10 @@ export type GameContextValue =
       status: GameStatus;
       currentStep: GameStep;
       paintingState: PaintingState;
-      setPaintingState: (value: PaintingState) => void;
+      checkUserGuess: (userGuess: string) => void;
       displayedStep: GameStep;
       updateDisplayedStep: (step: GameStep) => void;
+      setPaintingTitle: (value: string) => void;
     };
 
 export type PaintingState =

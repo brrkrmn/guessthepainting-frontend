@@ -15,7 +15,7 @@ const Page = async ({ params }: PageProps) => {
   const lastId = (await paintingsService.getLastId()).lastId;
 
   return (
-    <div className="flex h-screen w-[512px] flex-col items-center border-2 border-[#121]  pb-10">
+    <div className="flex h-screen w-[512px] flex-col items-center pb-10">
       <h1 className="text-2xl font-medium">Guess the Painting</h1>
       <div className="mt-8 flex w-full flex-col items-center gap-2">
         <p className="text-center font-normal text-[#45484c]">
@@ -25,7 +25,7 @@ const Page = async ({ params }: PageProps) => {
         <StepBoxes />
       </div>
       <div className="mt-2 flex h-full w-full items-center justify-center">
-        <SubmitSection />
+        <SubmitSection paintingTitle={painting.title} />
       </div>
       <div className="mt-auto flex w-full items-center">
         <PaintingNavigation lastId={Number(lastId)} />

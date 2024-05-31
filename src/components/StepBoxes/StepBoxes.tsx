@@ -1,5 +1,3 @@
-"use client";
-
 import { GameStep } from "@/context/gameContext.types";
 import { StepBox } from "./components/StepBox";
 

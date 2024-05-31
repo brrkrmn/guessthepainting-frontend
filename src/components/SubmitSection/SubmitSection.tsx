@@ -1,14 +1,20 @@
 "use client";
 
 import { useGameContext } from "@/context/gameProvider";
+import { useEffect } from "react";
 import { GameResult } from "./components/GameResult";
 import { PreviousGuesses } from "./components/PreviousGuesses";
 import { SearchField } from "./components/SearchField";
 
-const SubmitSection = () => {
-  const { status } = useGameContext();
+const SubmitSection = ({ paintingTitle }: { paintingTitle: string }) => {
+  const { status, setPaintingTitle } = useGameContext();
+
+  useEffect(() => {
+    setPaintingTitle(paintingTitle);
+  }, [paintingTitle]);
+
   return (
-    <div className="h-full w-full border-2">
+    <div className="h-full w-full">
       {status === "ongoing" ? <SearchField /> : <GameResult />}
       <PreviousGuesses />
     </div>

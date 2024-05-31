@@ -22,7 +22,7 @@ export const useGameContext = () => {
 const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [paintingState, setPaintingState] = useState<PaintingState>({});
   const [displayedStep, setDisplayedStep] = useState<GameStep>(1);
-
+  const [paintingTitle, setPaintingTitle] = useState("");
   const id = useParams().id;
 
   useEffect(() => {
@@ -44,11 +44,14 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
   }, [paintingState]);
 
   const status = useMemo(() => {
-    if (paintingState.sucessStep) {
+    console.log(paintingState);
+
+    if (paintingState.successStep) {
       return "success";
     } else if (paintingState.failedStep === 5) {
       return "failed";
     } else {
+      console.log("lo");
       return "ongoing";
     }
   }, [paintingState]);
@@ -74,15 +77,30 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
     setDisplayedStep(step);
   };
 
+  const checkUserGuess = (userGuess: string) => {
+    if (userGuess === paintingTitle) {
+      setPaintingState({
+        ...paintingState,
+        successStep: currentStep,
+      });
+    } else {
+      setPaintingState({
+        ...paintingState,
+        failedStep: currentStep,
+      });
+    }
+  };
+
   return (
     <GameContext.Provider
       value={{
         status,
         currentStep,
         paintingState,
-        setPaintingState,
+        checkUserGuess,
         displayedStep,
         updateDisplayedStep,
+        setPaintingTitle,
       }}
     >
       {children}

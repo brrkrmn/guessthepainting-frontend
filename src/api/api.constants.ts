@@ -5,6 +5,5 @@ export const API_URLS = {
   },
   search: {
     paintings: (query: string) => `search/paintings/${query}`,
-    autocomplete: (query: string) => `search/paintings/autocomplete/${query}`,
   },
 };

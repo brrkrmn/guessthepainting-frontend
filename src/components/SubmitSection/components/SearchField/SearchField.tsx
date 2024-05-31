@@ -19,7 +19,7 @@ const SearchField = () => {
   useEffect(() => {
     const getAutocompleteResults = async (query: string) => {
       if (query !== "") {
-        const res = await searchService.autocompletePainting(query);
+        const res = await searchService.searchPaintings(query);
         setItems(res);
       }
     };

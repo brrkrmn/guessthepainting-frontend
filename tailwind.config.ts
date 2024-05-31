@@ -8,9 +8,9 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'mobile': '425px',
-      'tablet': '600px',
-      'laptop': '1024px',
+      mobile: "425px",
+      tablet: "512px",
+      laptop: "1024px",
     },
     extend: {
       backgroundImage: {

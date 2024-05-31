@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} px-2 flex items-center justify-center`}>{children}</body>
+      <body
+        className={`${inter.className} mx-auto flex min-h-screen max-w-[512px] flex-col items-center justify-center px-2 tablet:px-0`}
+      >
+        <h1 className="text-2xl font-medium">Guess the Painting</h1>
+        {children}
+      </body>
     </html>
   );
 }

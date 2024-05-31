@@ -15,8 +15,7 @@ const Page = async ({ params }: PageProps) => {
   const lastId = (await paintingsService.getLastId()).lastId;
 
   return (
-    <div className="flex h-screen w-[512px] flex-col items-center pb-10">
-      <h1 className="text-2xl font-medium">Guess the Painting</h1>
+    <div className="flex h-screen w-full flex-col items-center justify-start pb-10">
       <div className="mt-8 flex w-full flex-col items-center gap-2">
         <p className="text-center font-normal text-[#45484c]">
           Painting #{painting.id}

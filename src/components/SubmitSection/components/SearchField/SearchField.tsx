@@ -51,6 +51,13 @@ const SearchField = () => {
       <button type="submit" className="w-full rounded-3xl border-2">
         Guess!
       </button>
+      <button
+        type="button"
+        onClick={() => checkUserGuess("")}
+        className="w-full rounded-3xl border-2"
+      >
+        Skip
+      </button>
     </form>
   );
 };

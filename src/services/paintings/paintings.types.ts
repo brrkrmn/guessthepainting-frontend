@@ -1,13 +1,8 @@
 export type Painting = {
   id: number;
   title: string;
-  hints: Hint[]
-}
-
-export type Hint = {
-  image: string;
-  text?: string;
-}
+  hints: string[];
+};
 
 export type GetPaintingResponse = Painting
 

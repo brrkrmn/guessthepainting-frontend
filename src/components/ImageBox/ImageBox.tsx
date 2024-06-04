@@ -1,17 +1,24 @@
 "use client";
 
 import { useGameContext } from "@/context/gameProvider";
-import { Hint } from "@/services/paintings/paintings.types";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import { HintBox } from "./components/HintBox";
 
-type ImageBoxProps = {
-  hints: Hint[];
-};
-
-const ImageBox = ({ hints }: ImageBoxProps) => {
+const ImageBox = ({ hints }: { hints: string[] }) => {
   const { displayedStep } = useGameContext();
+  const id = useParams().id;
+  const imagePath = `/assets/paintings/${id}/${displayedStep}.jpg`;
+
   return (
-    <div className="flex h-[280px] w-full items-center justify-center rounded-md border-2 border-[#1212]">
-      {hints[displayedStep - 1].image}
+    <div className="relative flex aspect-[64/35] w-full items-center justify-center rounded-md border-2 border-[#1212]">
+      <Image
+        alt="Painting Image"
+        src={imagePath && imagePath}
+        width={512}
+        height={280}
+      />
+      <HintBox hints={hints} />
     </div>
   );
 };

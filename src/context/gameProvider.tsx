@@ -29,7 +29,13 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
     const GTPData = localStorage.getItem("gameState");
     if (GTPData) {
       const gameState = JSON.parse(GTPData);
-      setPaintingState(gameState[id as keyof GameState]);
+      const currentPaintingState = gameState[id as keyof GameState];
+      if (
+        currentPaintingState &&
+        Object.keys(currentPaintingState).length !== 0
+      ) {
+        setPaintingState(gameState[id as keyof GameState]);
+      }
     }
   }, []);
 
@@ -44,14 +50,11 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
   }, [paintingState]);
 
   const status = useMemo(() => {
-    console.log(paintingState);
-
     if (paintingState.successStep) {
       return "success";
     } else if (paintingState.failedStep === 5) {
       return "failed";
     } else {
-      console.log("lo");
       return "ongoing";
     }
   }, [paintingState]);

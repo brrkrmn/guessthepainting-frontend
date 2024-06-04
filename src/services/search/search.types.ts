@@ -1,4 +1,4 @@
-export type SearchPaintingsResponse = [] | AutocompleteItem[];
+export type SearchPaintingResponse = [] | AutocompleteItem[];
 
 export type AutocompleteItem = {
   id: number;

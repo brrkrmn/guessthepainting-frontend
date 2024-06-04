@@ -13,10 +13,12 @@ type Item = {
 
 const SearchField = () => {
   const [value, setValue] = useState("");
+  const [guess, setGuess] = useState("");
   const [items, setItems] = useState<SearchPaintingResponse>([]);
   const { checkUserGuess } = useGameContext();
 
   useEffect(() => {
+    setGuess(value);
     const getAutocompleteResults = async (query: string) => {
       if (query !== "") {
         const res = await searchService.searchPaintings(query);
@@ -28,7 +30,7 @@ const SearchField = () => {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    checkUserGuess(value);
+    checkUserGuess(guess);
     setValue("");
   };
 
@@ -38,7 +40,7 @@ const SearchField = () => {
         items={items}
         inputSearchString={value}
         onSearch={(query) => setValue(query)}
-        onSelect={(item) => setValue(item.title)}
+        onSelect={(item) => setGuess(item.title)}
         fuseOptions={{ keys: ["title"] }}
         resultStringKeyName="title"
         autoFocus

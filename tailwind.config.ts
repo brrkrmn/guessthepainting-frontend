@@ -13,6 +13,9 @@ const config: Config = {
       laptop: "1024px",
     },
     extend: {
+      fontFamily: {
+        fairplay: ["var(--font-fairplay)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

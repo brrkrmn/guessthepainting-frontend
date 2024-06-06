@@ -1,8 +1,16 @@
+import { Header } from "@/components/Header";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import './globals.css';
+import { Inter, Playfair } from "next/font/google";
+import Link from "next/link";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const playFair = Playfair({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fairplay",
+});
 
 export const metadata: Metadata = {
   title: "Guess the Painting",
@@ -17,10 +25,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} mx-auto flex min-h-screen max-w-[512px] flex-col items-center justify-center px-2 tablet:px-0`}
+        className={`${inter.className} ${playFair.variable} mainBackground mx-auto flex min-h-screen flex-col items-center justify-center px-2 py-6`}
       >
-        <h1 className="text-2xl font-medium">Guess the Painting</h1>
-        {children}
+        <div className="flex w-[600px] flex-col items-center justify-center">
+          <Header />
+          <div className="cardBackground flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 border-[#73664fb8] px-4 py-10 shadow-2xl">
+            <div className="flex h-full flex-col items-center justify-start rounded-lg">
+              {children}
+            </div>
+          </div>
+          <p className="font-fairplay text-lg text-[#73664fb8]">
+            <span className=" ">made by</span>{" "}
+            <Link
+              href="https://www.linkedin.com/in/berra-karaman-3936471b0/"
+              className="transition hover:text-[#879bb5]"
+            >
+              Berra Karaman
+            </Link>
+          </p>
+        </div>
       </body>
     </html>
   );

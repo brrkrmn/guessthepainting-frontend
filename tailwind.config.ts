@@ -13,6 +13,15 @@ const config: Config = {
       laptop: "1024px",
     },
     extend: {
+      colors: {
+        blue: {
+          light: "#96a6bc",
+          dark: "#879bb5",
+        },
+        brown: {
+          main: "#73664fb8",
+        },
+      },
       fontFamily: {
         fairplay: ["var(--font-fairplay)"],
       },

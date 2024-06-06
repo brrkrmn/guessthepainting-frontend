@@ -1,7 +1,7 @@
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import type { Metadata } from "next";
 import { Inter, Playfair } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,20 +29,12 @@ export default function RootLayout({
       >
         <div className="flex w-[600px] flex-col items-center justify-center">
           <Header />
-          <div className="cardBackground flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 border-[#73664fb8] px-4 py-10 shadow-2xl">
+          <div className="cardBackground border-brown-main flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 px-4 py-10 shadow-2xl">
             <div className="flex h-full flex-col items-center justify-start rounded-lg">
               {children}
             </div>
           </div>
-          <p className="font-fairplay text-lg text-[#73664fb8]">
-            <span className=" ">made by</span>{" "}
-            <Link
-              href="https://www.linkedin.com/in/berra-karaman-3936471b0/"
-              className="transition hover:text-[#879bb5]"
-            >
-              Berra Karaman
-            </Link>
-          </p>
+          <Footer />
         </div>
       </body>
     </html>

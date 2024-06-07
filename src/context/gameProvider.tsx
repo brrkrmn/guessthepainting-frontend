@@ -103,6 +103,7 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
         checkUserGuess,
         displayedStep,
         updateDisplayedStep,
+        paintingTitle,
         setPaintingTitle,
       }}
     >

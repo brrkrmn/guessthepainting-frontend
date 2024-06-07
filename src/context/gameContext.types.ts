@@ -7,6 +7,7 @@ export type GameContextValue =
       checkUserGuess: (userGuess: string) => void;
       displayedStep: GameStep;
       updateDisplayedStep: (step: GameStep) => void;
+      paintingTitle: string;
       setPaintingTitle: (value: string) => void;
     };
 

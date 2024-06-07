@@ -3,7 +3,6 @@
 import { useGameContext } from "@/context/gameProvider";
 import { useEffect } from "react";
 import { GameResult } from "./components/GameResult";
-import { PreviousGuesses } from "./components/PreviousGuesses";
 import { SearchField } from "./components/SearchField";
 
 const SubmitSection = ({ paintingTitle }: { paintingTitle: string }) => {
@@ -16,7 +15,7 @@ const SubmitSection = ({ paintingTitle }: { paintingTitle: string }) => {
   return (
     <div className="h-full w-full">
       {status === "ongoing" ? <SearchField /> : <GameResult />}
-      <PreviousGuesses />
+      {/* <PreviousGuesses /> */}
     </div>
   );
 };

@@ -35,7 +35,10 @@ const SearchField = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="flex w-full flex-col items-center justify-center gap-4 px-10"
+      onSubmit={handleSubmit}
+    >
       <ReactSearchAutocomplete
         items={items}
         inputSearchString={value}
@@ -47,17 +50,23 @@ const SearchField = () => {
         maxResults={20}
         showClear={false}
         showNoResults={false}
+        className="autocomplete flex w-full items-center justify-center transition *:rounded-lg *:transition"
       />
-      <button type="submit" className="w-full rounded-3xl border-2">
-        Guess!
-      </button>
-      <button
-        type="button"
-        onClick={() => checkUserGuess("")}
-        className="w-full rounded-3xl border-2"
-      >
-        Skip
-      </button>
+      <div className="flex w-full flex-col items-center justify-center gap-2 mobile:flex-row">
+        <button
+          type="submit"
+          className="h-10 w-full rounded-lg border-2 border-brown-light bg-brown-light font-fairplay text-lg text-black shadow-lg transition mobile:basis-2/3"
+        >
+          Guess!
+        </button>
+        <button
+          type="button"
+          onClick={() => checkUserGuess("")}
+          className="h-10 w-full rounded-lg border-2 border-brown-light bg-background-dark font-fairplay text-lg text-black shadow-lg mobile:basis-1/3"
+        >
+          Skip
+        </button>
+      </div>
     </form>
   );
 };

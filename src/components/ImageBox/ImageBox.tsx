@@ -11,13 +11,13 @@ const ImageBox = ({ hints }: { hints: string[] }) => {
   const imagePath = `/assets/paintings/${id}/${displayedStep}.jpg`;
 
   return (
-    <div className="relative flex aspect-[64/35] w-full items-center justify-center">
+    <div className="border-brown-light relative flex aspect-[64/35] w-full items-center justify-center rounded-lg border-2 drop-shadow-lg">
       <Image
         alt="Painting Image"
         src={imagePath && imagePath}
         width={512}
         height={280}
-        className="rounded-lg"
+        className="rounded-[6px]"
       />
       <HintBox hints={hints} />
     </div>

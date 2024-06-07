@@ -14,13 +14,17 @@ const config: Config = {
     },
     extend: {
       colors: {
-        background: "#f3f2ea",
+        background: {
+          light: "#f3f2ea",
+          dark: "#ebe7de",
+        },
         blue: {
           light: "#96a6bc",
           dark: "#879bb5",
         },
         brown: {
-          main: "#73664fb8",
+          light: "#73664fb8",
+          dark: "#73664f",
         },
       },
       fontFamily: {

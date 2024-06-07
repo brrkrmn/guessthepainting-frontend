@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         <div className="flex w-[600px] flex-col items-center justify-center">
           <Header />
-          <div className="cardBackground border-brown-main flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 px-4 py-10 shadow-2xl">
+          <div className="cardBackground border-brown-light flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 px-4 py-10 shadow-2xl">
             <div className="flex h-full flex-col items-center justify-start rounded-lg">
               {children}
             </div>

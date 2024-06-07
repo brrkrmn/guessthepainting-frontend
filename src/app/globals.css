@@ -33,18 +33,18 @@
 }
 
 html {
-  background: rgba(235,231,222,1);
+  background: #ebe7de;
 }
 
 .mainBackground {
-  background: radial-gradient(circle, rgba(218,215,203,1) 20%, rgba(235,231,222,1) 50%);
+  background: radial-gradient(circle, #dad7cb 20%, #ebe7de 50%);
 }
 
 .cardBackground {
   overflow: hidden;
   position: relative;
   background:
-    radial-gradient(circle, rgba(235,231,222,1) 20%, rgba(243,242,234,1) 80%);
+    radial-gradient(circle, #ebe7de 20%, #f3f2ea 80%);
 }
 
 .cardBackground::before {
@@ -75,6 +75,27 @@ html {
 }
 
 .cardBackground > * {
-  /* position: relative; */
   z-index: 2;
+}
+
+.imageBackground1::before {
+  background: url('/assets/images/the-creation-of-adam-left.png') bottom left / 104% auto no-repeat,
+  url('/assets/images/the-creation-of-adam-right.png') bottom right -70px / 102% auto no-repeat;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.imageBackground2::before {
+  background: url('/assets/images/the-school-of-athens.png') bottom / 103% auto no-repeat;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
 }

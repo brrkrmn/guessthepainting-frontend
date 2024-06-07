@@ -5,8 +5,8 @@ export type GameContextValue =
       currentStep: GameStep;
       paintingState: PaintingState;
       checkUserGuess: (userGuess: string) => void;
-      displayedStep: GameStep;
-      updateDisplayedStep: (step: GameStep) => void;
+      displayedStep: DisplayedStep;
+      updateDisplayedStep: (step: DisplayedStep) => void;
       paintingTitle: string;
       setPaintingTitle: (value: string) => void;
     };
@@ -30,3 +30,5 @@ export type FailedStep = null | GameStep;
 export type GameStatus = "success" | "ongoing" | "failed";
 
 export type GameStep = 1 | 2 | 3 | 4 | 5;
+
+export type DisplayedStep = 1 | 2 | 3 | 4 | 5 | 6;

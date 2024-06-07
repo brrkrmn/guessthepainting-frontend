@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  DisplayedStep,
   GameContextValue,
   GameState,
   GameStep,
@@ -21,7 +22,7 @@ export const useGameContext = () => {
 
 const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [paintingState, setPaintingState] = useState<PaintingState>({});
-  const [displayedStep, setDisplayedStep] = useState<GameStep>(1);
+  const [displayedStep, setDisplayedStep] = useState<DisplayedStep>(1);
   const [paintingTitle, setPaintingTitle] = useState("");
   const id = useParams().id;
 
@@ -38,6 +39,12 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (status === "success" || status === "failed") {
+      setDisplayedStep(6);
+    }
+  }, [paintingState]);
 
   useEffect(() => {
     const GTPData = localStorage.getItem("gameState");
@@ -76,7 +83,7 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [paintingState]);
 
-  const updateDisplayedStep = (step: GameStep) => {
+  const updateDisplayedStep = (step: DisplayedStep) => {
     setDisplayedStep(step);
   };
 

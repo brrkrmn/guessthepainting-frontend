@@ -28,7 +28,14 @@ const config: Config = {
           dark: "#73664f",
         },
         black: "#45484c",
-        red: { dark: "#390202", light: "#39020299" },
+        success: {
+          foreground: "#2E6331",
+          background: "#628a5d5f",
+        },
+        danger: {
+          foreground: "#A0372D",
+          background: "#6204045f",
+        },
       },
       fontFamily: {
         fairplay: ["var(--font-fairplay)"],

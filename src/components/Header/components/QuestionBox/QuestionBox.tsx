@@ -21,7 +21,7 @@ const QuestionBox = () => {
         guess the painting correctly after 5 tries, the correct answer will be
         revealed.
       </p>
-      <p>Have Fun!</p>
+      <p className="mb-44">Have Fun!</p>
     </Modal>
   );
 };

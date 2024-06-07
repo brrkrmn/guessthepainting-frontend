@@ -12,7 +12,7 @@ const InfoBox = () => {
       triggerIcon={<IoInformationOutline className="text-xl" />}
       backgroundImage="imageBackground1"
     >
-      <div className="flex h-full flex-col items-center">
+      <div className="mb-56 flex h-full flex-col items-center">
         <p>
           Guess the Painting is a guessing game that presents a new painting
           every day. You can reach out via email to submit paintings that you

@@ -15,9 +15,9 @@ const Page = async ({ params }: PageProps) => {
   const lastId = (await paintingsService.getLastId()).lastId;
 
   return (
-    <div className="flex h-full max-w-[500px] flex-col items-center justify-start">
-      <div className="mt-8 flex w-full flex-col items-center gap-2">
-        <p className="text-center font-normal text-[#45484c]">
+    <div className="absolute bottom-0 top-0 flex max-w-[500px] flex-col items-center justify-start px-2 py-6">
+      <div className="flex w-full flex-col items-center gap-6">
+        <p className="text-center font-fairplay text-xl text-black">
           Painting #{painting.id}
         </p>
         <ImageBox hints={painting.hints} />

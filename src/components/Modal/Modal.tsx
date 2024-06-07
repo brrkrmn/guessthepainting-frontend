@@ -27,7 +27,7 @@ const Modal = ({
           <Dialog.Content
             className={`${backgroundImage} bg-background-light data-[state=open]:animate-contentShow relative z-20 flex w-full max-w-[600px] flex-col items-center justify-start overflow-hidden rounded-lg px-20 pt-16 transition-all`}
           >
-            <Dialog.Title className="text-brown-light text-center font-fairplay text-4xl">
+            <Dialog.Title className="text-brown-light text-center font-fairplay text-3xl tablet:text-4xl">
               GUESS THE PAINTING
               <p className="text-blue-dark text-center text-2xl">{title}</p>
             </Dialog.Title>

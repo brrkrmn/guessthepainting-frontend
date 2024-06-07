@@ -25,14 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${playFair.variable} mainBackground mx-auto flex min-h-screen flex-col items-center justify-center px-2 py-6`}
+        className={`${inter.className} ${playFair.variable} mainBackground mx-auto flex flex-col items-center justify-center px-2 py-6`}
       >
-        <div className="flex w-[600px] flex-col items-center justify-center">
+        <div className="flex w-full max-w-[600px] flex-col items-center justify-center">
           <Header />
-          <div className="cardBackground border-brown-light flex h-[90vh] w-[600px] flex-col items-center justify-center rounded-lg border-2 px-4 py-10 shadow-2xl">
-            <div className="flex h-full flex-col items-center justify-start rounded-lg">
-              {children}
-            </div>
+          <div className="cardBackground border-brown-light relative flex min-h-[90vh] w-full flex-col items-center rounded-lg border-2 shadow-2xl">
+            {children}
           </div>
           <Footer />
         </div>

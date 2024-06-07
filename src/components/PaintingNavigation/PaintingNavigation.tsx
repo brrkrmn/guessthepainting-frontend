@@ -14,7 +14,7 @@ const PaintingNavigation = ({ lastId }: { lastId: number }) => {
         disabled={id === 1}
       />
       <NavigationButton
-        label="See all paintings"
+        label="See all"
         href="/paintings/all"
         disabled={false}
       />

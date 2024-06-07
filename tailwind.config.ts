@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     screens: {
       mobile: "425px",
-      tablet: "512px",
+      tablet: "600px",
       laptop: "1024px",
     },
     extend: {
@@ -17,6 +17,7 @@ const config: Config = {
         background: {
           light: "#f3f2ea",
           dark: "#ebe7de",
+          transparent: "#f3f2ea66",
         },
         blue: {
           light: "#96a6bc",
@@ -26,6 +27,8 @@ const config: Config = {
           light: "#73664fb8",
           dark: "#73664f",
         },
+        black: "#45484c",
+        red: { dark: "#390202", light: "#39020299" },
       },
       fontFamily: {
         fairplay: ["var(--font-fairplay)"],

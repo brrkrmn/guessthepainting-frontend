@@ -12,7 +12,7 @@ const NavigationButton = ({
   return (
     <Link
       href={href}
-      className={`flex h-8 min-w-20 items-center justify-center rounded-2xl border-2 border-[#390202] bg-[#f3f2ea66] px-2 font-normal text-[#390202] ${disabled && "pointer-events-none	"} font-serif shadow-xl transition hover:bg-[#39020299] hover:font-normal hover:text-[#fff1e7]`}
+      className={`border-brown-dark text-brown-dark bg-background-transparent flex h-8 min-w-20 items-center justify-center rounded-2xl border-2 px-2 text-lg font-semibold ${disabled && "pointer-events-none opacity-0"} hover:text-background-dark hover:bg-brown-light font-fairplay shadow-xl transition`}
     >
       {label}
     </Link>

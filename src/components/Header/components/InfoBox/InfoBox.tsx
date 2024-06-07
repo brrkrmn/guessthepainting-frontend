@@ -41,8 +41,17 @@ const InfoBox = () => {
             <GrLinkedin className="text-2xl" />
           </Link>
         </div>
-        <div className="text-blue-dark flex flex-col items-center justify-center text-[14px] leading-snug">
-          <p>Inspired by GuessThe.Game and Picdtle</p>
+        <div className="flex flex-col items-center justify-center text-[15px] leading-snug">
+          <p>
+            Inspired by{" "}
+            <a className="text-blue-dark" href="https://guessthe.game/">
+              GuessThe.Game
+            </a>{" "}
+            and{" "}
+            <a className="text-blue-dark" href="https://pictdle.com/#/">
+              Pictdle
+            </a>
+          </p>
           <p>Made by Berra Karaman</p>
         </div>
       </div>

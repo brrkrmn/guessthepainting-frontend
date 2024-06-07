@@ -23,9 +23,9 @@ const Modal = ({
         <button className={`${boxStyles}`}>{triggerIcon}</button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-10 bg-black/70" />
+        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 z-10 bg-black/70 transition-all transition-all" />
         <Dialog.Content
-          className={`${backgroundImage} bg-background fixed left-[50%] top-[50%] z-20 flex h-[70vh] w-full max-w-[600px] translate-x-[-50%] translate-y-[-50%] flex-col items-center justify-start overflow-hidden rounded-lg px-20 pt-16`}
+          className={`${backgroundImage} bg-background data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] z-20 flex h-[70vh] w-full max-w-[600px] translate-x-[-50%] translate-y-[-50%] flex-col items-center justify-start overflow-hidden rounded-lg px-20 pt-16 transition-all`}
         >
           <Dialog.Title className="text-brown-main text-center font-fairplay text-4xl">
             GUESS THE PAINTING

@@ -23,15 +23,15 @@ const Modal = ({
         <button className={`${boxStyles}`}>{triggerIcon}</button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center overflow-y-auto bg-black/70 transition-all">
+        <Dialog.Overlay className="absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center overflow-y-auto bg-black/70 transition-all">
           <Dialog.Content
-            className={`${backgroundImage} bg-background-light data-[state=open]:animate-contentShow relative z-20 flex w-full max-w-[600px] flex-col items-center justify-start overflow-hidden rounded-lg px-20 pt-16 transition-all`}
+            className={`${backgroundImage} data-[state=open]:animate-opacity relative z-20 flex w-full max-w-[600px] flex-col items-center justify-start overflow-hidden rounded-lg bg-background-light px-20 pt-16 transition-all`}
           >
-            <Dialog.Title className="text-brown-light text-center font-fairplay text-3xl tablet:text-4xl">
+            <Dialog.Title className="text-center font-fairplay text-3xl text-brown-light tablet:text-4xl">
               GUESS THE PAINTING
-              <p className="text-blue-dark text-center text-2xl">{title}</p>
+              <p className="text-center text-2xl text-blue-dark">{title}</p>
             </Dialog.Title>
-            <Dialog.Description className="text-brown-light z-20 mb-5 mt-6 flex flex-col items-center justify-center gap-4 text-center font-fairplay text-lg leading-normal *:font-fairplay *:text-lg">
+            <Dialog.Description className="z-20 mb-5 mt-6 flex flex-col items-center justify-center gap-4 text-center font-fairplay text-lg leading-normal text-brown-light *:font-fairplay *:text-lg">
               {children}
             </Dialog.Description>
             <Dialog.Close className="absolute right-4 top-4" asChild>

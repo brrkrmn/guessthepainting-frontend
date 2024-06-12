@@ -1,12 +1,12 @@
 import Modal from "@/components/Modal/Modal";
-import { MdOutlineQuestionMark } from "react-icons/md";
+import { BsQuestionLg } from "react-icons/bs";
 
 const QuestionBox = () => {
   return (
     <Modal
       backgroundImage="imageBackground2"
       title="how to play"
-      triggerIcon={<MdOutlineQuestionMark className="text-xl" />}
+      triggerIcon={<BsQuestionLg className="text-lg" />}
     >
       <p>
         For each game, you will see a zoomed-in part of a painting and try to

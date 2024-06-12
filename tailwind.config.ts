@@ -17,7 +17,7 @@ const config: Config = {
         background: {
           light: "#f3f2ea",
           dark: "#ebe7de",
-          transparent: "#f3f2ea66",
+          transparent: "#f3f2ea8a",
         },
         blue: {
           light: "#96a6bc",
@@ -36,6 +36,7 @@ const config: Config = {
           foreground: "#A0372D",
           background: "#6204045f",
         },
+        disabled: "#D0C7AB",
       },
       fontFamily: {
         fairplay: ["var(--font-fairplay)"],

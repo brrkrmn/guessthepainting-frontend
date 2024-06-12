@@ -18,8 +18,9 @@ const StepBox = ({ boxNumber }: ComponentProps) => {
       onClick={() => updateDisplayedStep(boxNumber)}
       className={`
         flex aspect-square w-8 items-center justify-center rounded-lg border border-brown-dark text-brown-light
-        ${successStep && successStep === boxNumber ? "border-success-foreground text-success-foreground bg-success-background" : ""}
-        ${failedStep && failedStep >= boxNumber ? "border-danger-foreground text-danger-foreground bg-danger-background" : ""}
+        ${successStep && successStep === boxNumber ? "border-success-foreground bg-success-background text-success-foreground" : ""}
+        ${failedStep && failedStep >= boxNumber ? "border-danger-foreground bg-danger-background text-danger-foreground" : ""}
+        ${status === "ongoing" && boxNumber > currentStep && "border-disabled text-disabled"}
       `}
       disabled={status === "ongoing" && boxNumber > currentStep}
     >

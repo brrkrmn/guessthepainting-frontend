@@ -55,7 +55,7 @@ const SearchField = () => {
       <div className="flex w-full flex-col items-center justify-center gap-2 mobile:flex-row">
         <button
           type="submit"
-          className="h-10 w-full rounded-lg border-2 border-brown-light bg-brown-light font-fairplay text-lg text-black shadow-lg transition mobile:basis-2/3"
+          className="h-10 w-full rounded-lg border-2 border-brown-light bg-brown-light font-fairplay text-lg font-semibold text-background-light shadow-lg transition mobile:basis-2/3"
         >
           Guess!
         </button>

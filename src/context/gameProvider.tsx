@@ -88,7 +88,7 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const checkUserGuess = (userGuess: string) => {
-    if (userGuess === paintingTitle) {
+    if (userGuess.toLowerCase() === paintingTitle.toLowerCase()) {
       setPaintingState({
         ...paintingState,
         successStep: currentStep,

@@ -47,10 +47,22 @@ const SearchField = () => {
         fuseOptions={{ keys: ["title"] }}
         resultStringKeyName="title"
         autoFocus
-        maxResults={20}
+        maxResults={5}
         showClear={false}
         showNoResults={false}
-        className="autocomplete flex w-full items-center justify-center transition *:rounded-lg *:transition"
+        placeholder="Make a guess"
+        className="w-full transition"
+        styling={{
+          height: "44px",
+          border: "1px solid #73664fb8",
+          borderRadius: "8px",
+          backgroundColor: "#f3f2ea",
+          color: "#73664f",
+          iconColor: "#73664fb8",
+          lineColor: "#73664fb8",
+          hoverBackgroundColor: "#73664f64",
+          placeholderColor: "#73664f64",
+        }}
       />
       <div className="flex w-full flex-col items-center justify-center gap-2 mobile:flex-row">
         <button

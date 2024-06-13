@@ -51,15 +51,18 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
     const gameState = GTPData && JSON.parse(GTPData);
     const newGameState: GameState = {
       ...gameState,
-      [id]: paintingState,
+      [id as keyof PaintingState]: paintingState,
     };
     localStorage.setItem("gameState", JSON.stringify(newGameState));
   }, [paintingState]);
 
   const status = useMemo(() => {
-    if (paintingState.successStep) {
+    if ("successStep" in paintingState && paintingState.successStep) {
       return "success";
-    } else if (paintingState.failedStep === 5) {
+    } else if (
+      "failedStep" in paintingState &&
+      paintingState.failedStep === 5
+    ) {
       return "failed";
     } else {
       return "ongoing";
@@ -67,20 +70,21 @@ const GameProvider = ({ children }: { children: React.ReactNode }) => {
   }, [paintingState]);
 
   const currentStep = useMemo(() => {
-    const successStep = paintingState.successStep;
-    const failedStep = paintingState.failedStep;
+    const successStep =
+      "successStep" in paintingState && paintingState.successStep;
+    const failedStep =
+      "failedStep" in paintingState && paintingState.failedStep;
 
-    if (!successStep && !failedStep) {
-      setDisplayedStep(1);
-      return 1;
-    } else if (!successStep && failedStep) {
-      const step = Math.min(5, failedStep + 1) as GameStep;
-      setDisplayedStep(step);
-      return step;
-    } else if (successStep) {
-      setDisplayedStep(successStep);
-      return successStep;
-    }
+    if (!successStep && failedStep) {
+       const step = Math.min(5, failedStep + 1) as GameStep;
+       setDisplayedStep(step);
+       return step;
+     } else if (successStep) {
+       setDisplayedStep(successStep);
+       return successStep;
+     }
+    setDisplayedStep(1);
+    return 1;
   }, [paintingState]);
 
   const updateDisplayedStep = (step: DisplayedStep) => {

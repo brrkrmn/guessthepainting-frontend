@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Coffee } from "./components/Coffee";
 import { InfoBox } from "./components/InfoBox";
 import { QuestionBox } from "./components/QuestionBox";
 
@@ -16,10 +17,11 @@ const Header = () => {
           width={18}
           height={18}
         />
-        <h1 className="font-fairplay text-xl font-medium text-brown-light group-hover:text-blue-dark">
+        <h1 className="text-nowrap font-fairplay text-xl font-medium text-brown-light group-hover:text-blue-dark">
           Guess the Painting
         </h1>
       </Link>
+      <Coffee />
       <InfoBox />
       <QuestionBox />
     </div>

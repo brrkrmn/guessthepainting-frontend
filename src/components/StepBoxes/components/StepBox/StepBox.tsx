@@ -10,8 +10,9 @@ type ComponentProps = {
 const StepBox = ({ boxNumber }: ComponentProps) => {
   const { status, currentStep, paintingState, updateDisplayedStep } =
     useGameContext();
-  const successStep = paintingState.successStep;
-  const failedStep = paintingState.failedStep;
+  const successStep =
+    "successStep" in paintingState && paintingState.successStep;
+  const failedStep = "failedStep" in paintingState && paintingState.failedStep;
 
   return (
     <button

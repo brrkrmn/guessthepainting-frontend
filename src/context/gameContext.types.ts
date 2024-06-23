@@ -1,15 +1,13 @@
-export type GameContextValue =
-  | undefined
-  | {
-      status: GameStatus;
-      currentStep: GameStep;
-      paintingState: PaintingState;
-      checkUserGuess: (userGuess: string) => void;
-      displayedStep: DisplayedStep;
-      updateDisplayedStep: (step: DisplayedStep) => void;
-      paintingTitle: string;
-      setPaintingTitle: (value: string) => void;
-    };
+export type GameContextValue = null | {
+  status: GameStatus;
+  currentStep: GameStep;
+  paintingState: PaintingState;
+  checkUserGuess: (userGuess: string) => void;
+  displayedStep: DisplayedStep;
+  updateDisplayedStep: (step: DisplayedStep) => void;
+  paintingTitle: string;
+  setPaintingTitle: (value: string) => void;
+};
 
 export type PaintingState =
   | {}

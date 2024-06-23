@@ -10,11 +10,11 @@ import {
 import { useParams } from "next/navigation";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-export const GameContext = createContext<GameContextValue>(undefined);
+export const GameContext = createContext<GameContextValue>(null);
 
 export const useGameContext = () => {
   const context = useContext(GameContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("You can only call this hook inside GameProvider");
   }
   return context;

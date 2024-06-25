@@ -3,7 +3,9 @@ import { redirect } from "next/navigation";
 
 const Page = async () => {
   const res = await paintingsService.getLastId();
-  redirect(`/paintings/${res.lastId.toString()}`);
+  if (res.lastId) {
+    redirect(`/paintings/${res.lastId.toString()}`);
+  }
 };
 
 export default Page;

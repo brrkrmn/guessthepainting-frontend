@@ -25,7 +25,7 @@ const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay className="absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center overflow-y-auto bg-black/70 transition-all">
           <Dialog.Content
-            className={`${backgroundImage} relative z-20 flex h-full w-full max-w-[600px] flex-col items-center justify-start overflow-hidden overflow-y-scroll rounded-lg bg-background-light px-4 pb-20 pt-16 transition-all data-[state=open]:animate-opacity mobile:px-20`}
+            className={`${backgroundImage} relative z-20 flex h-full w-full max-w-[600px] flex-col items-center justify-start overflow-hidden overflow-y-scroll rounded-lg bg-background-light px-4 pb-20 pt-16 transition-all data-[state=open]:animate-opacity mobile:px-20 mobile:pb-0`}
           >
             <Dialog.Title className="text-center font-fairplay text-3xl text-brown-light tablet:text-4xl">
               GUESS THE PAINTING

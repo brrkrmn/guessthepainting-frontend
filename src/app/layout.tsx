@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import type { Metadata } from "next";
+import PlausibleProvider from "next-plausible";
 import { Inter, Playfair } from "next/font/google";
 import "./globals.css";
 
@@ -25,11 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          defer
-          data-domain="guessthepainting.com"
-          src="https://plausible.io/js/script.js"
-        ></script>
+        <PlausibleProvider domain="guessthepainting.com" />
       </head>
       <body
         className={`${inter.className} ${playFair.variable} mainBackground mx-auto flex flex-col items-center justify-center px-2 py-6`}

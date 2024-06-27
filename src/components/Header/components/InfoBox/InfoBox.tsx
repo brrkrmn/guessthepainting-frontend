@@ -27,6 +27,7 @@ const InfoBox = () => {
             <IoMail className="text-3xl " />
           </Link>
           <Link
+            target="_blank"
             aria-label="Link to project repo"
             className={`!h-12 !w-12 rounded-lg ${boxStyles}`}
             href="https://github.com/brrkrmn/guessthepainting-frontend"
@@ -34,6 +35,7 @@ const InfoBox = () => {
             <FaGithub className="text-3xl " />
           </Link>
           <Link
+            target="_blank"
             aria-label="Link to creator's linkedin"
             className={`!h-12 !w-12 rounded-lg ${boxStyles}`}
             href="https://www.linkedin.com/in/berra-karaman-3936471b0/"

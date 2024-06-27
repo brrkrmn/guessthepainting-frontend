@@ -15,7 +15,7 @@ const Page = async ({ params }: PageProps) => {
   const lastId = (await paintingsService.getLastId()).lastId;
 
   return (
-    <div className="absolute bottom-0 top-0 flex max-w-[500px] flex-col items-center justify-start gap-6 px-2 py-6">
+    <div className="absolute bottom-0 top-0 flex w-full max-w-[500px] flex-col items-center justify-start gap-6 px-2 py-6">
       <div className="flex w-full flex-col items-center gap-6">
         <p className="text-center font-fairplay text-xl text-black">
           Painting #{painting.id}

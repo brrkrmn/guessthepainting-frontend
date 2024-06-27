@@ -36,7 +36,7 @@ const SearchField = () => {
 
   return (
     <form
-      className="flex w-full flex-col items-center justify-center gap-4 px-10"
+      className="flex w-full flex-col items-center justify-center gap-4 tablet:px-10"
       onSubmit={handleSubmit}
     >
       <ReactSearchAutocomplete

@@ -24,12 +24,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          data-domain="guessthepainting.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
+      </head>
       <body
         className={`${inter.className} ${playFair.variable} mainBackground mx-auto flex flex-col items-center justify-center px-2 py-6`}
       >
         <div className="flex w-full max-w-[600px] flex-col items-center justify-center">
           <Header />
-          <div className="cardBackground border-brown-light relative flex min-h-[90vh] w-full flex-col items-center rounded-lg border-2 shadow-2xl">
+          <div className="cardBackground relative flex min-h-[90vh] w-full flex-col items-center rounded-lg border-2 border-brown-light shadow-2xl">
             {children}
           </div>
           <Footer />

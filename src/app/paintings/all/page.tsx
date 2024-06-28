@@ -9,8 +9,8 @@ const Page = async () => {
   }
 
   return (
-    <div className="flex h-[90vh] w-full flex-col items-center justify-start gap-2 px-4 py-10">
-      <h1 className="mb-4 rounded-full px-2 text-center font-fairplay text-3xl font-medium text-brown-dark backdrop-blur-sm">
+    <div className="flex h-full w-full flex-col items-center justify-start gap-2 px-4 py-10">
+      <h1 className="mb-4 mt-6 rounded-full px-2 text-center font-fairplay text-3xl font-medium text-brown-dark backdrop-blur-sm">
         Previous Paintings
       </h1>
       <div className="flex w-full flex-col items-center justify-start gap-2 overflow-y-scroll overscroll-none pb-60">

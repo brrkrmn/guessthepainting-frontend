@@ -1,5 +1,6 @@
 "use client";
 
+import { useGameContext } from "@/context/gameProvider";
 import { useParams } from "next/navigation";
 import {
   MdOutlineList,
@@ -10,6 +11,7 @@ import { NavigationButton } from "./components/NavigationButton";
 
 const PaintingNavigation = ({ lastId }: { lastId: number }) => {
   const id = Number(useParams().id);
+  const { status } = useGameContext();
 
   return (
     <div className="flex w-full items-center justify-between">
@@ -27,6 +29,7 @@ const PaintingNavigation = ({ lastId }: { lastId: number }) => {
       />
       <NavigationButton
         label="Next"
+        className={`${status !== "ongoing" && "animate-bounce"}`}
         icon={<MdOutlineNavigateNext />}
         href={`/paintings/${Math.min(id + 1, lastId)}`}
         disabled={id === lastId}

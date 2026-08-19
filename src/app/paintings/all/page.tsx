@@ -1,8 +1,24 @@
+import { ServiceUnavailable } from "@/components/ServiceUnavailable";
 import { paintingsService } from "@/services/paintings";
 import Link from "next/link";
 
+// Rendered per request so the list stays current and a backend outage during
+// the build cannot fail `next build` or get cached as a broken page.
+export const dynamic = "force-dynamic";
+
 const Page = async () => {
-  const lastId = (await paintingsService.getLastId()).lastId;
+  let lastId: number | undefined;
+
+  try {
+    lastId = (await paintingsService.getLastId()).lastId;
+  } catch (error) {
+    console.error("Failed to fetch the last painting id", error);
+  }
+
+  if (!lastId) {
+    return <ServiceUnavailable />;
+  }
+
   const paintings = [];
   for (let i = lastId; i >= 1; i--) {
     paintings.push(i);
